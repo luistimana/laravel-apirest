@@ -28,5 +28,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
     Route::post('logout', [AuthController::class, 'logout']);
 
-    Route::get('files', [FileController::class, 'index']);
+    Route::get('files-list', [FileController::class, 'index']);
+    Route::post('files-save', [FileController::class, 'store']);
+
 });

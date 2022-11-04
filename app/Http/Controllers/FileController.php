@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\File;
 use Illuminate\Http\Request;
+use App\Http\Requests\FileStore;
 
 class FileController extends Controller
 {
@@ -34,9 +35,14 @@ class FileController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(FileStore $request)
     {
-        //
+        File::create($request->all());
+
+        return response()->json([
+            'response' => 'success',
+            'message' => 'Fichero creado correctamente.',
+        ], 201);
     }
 
     /**
