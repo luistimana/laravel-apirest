@@ -87,6 +87,10 @@ class FileController extends Controller
      */
     public function destroy(File $file)
     {
-        //
+        $file->delete();
+        return response()->json([
+            'response' => 'success',
+            'message' => 'Fichero eliminado correctamente.',
+        ], 201);
     }
 }
