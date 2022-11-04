@@ -19,6 +19,7 @@ class CreateFilesTable extends Migration
             $table->string('description');
             $table->float('amount');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -79,6 +79,16 @@ class FileController extends Controller
         //
     }
 
+    public function destroy_logical(File $file)
+    {
+        $file->delete();
+        return response()->json([
+            'response' => 'success',
+            'message' => 'Fichero eliminado correctamente.',
+        ], 201);
+
+    }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -87,10 +97,11 @@ class FileController extends Controller
      */
     public function destroy(File $file)
     {
-        $file->delete();
+        $file->forceDelete();
         return response()->json([
             'response' => 'success',
             'message' => 'Fichero eliminado correctamente.',
         ], 201);
     }
+
 }
